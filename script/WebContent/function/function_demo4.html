@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+
+	var a = 10;
+	
+	function fn1() {
+		// 지역변수: fn1()함수 안에서만 사용이 가능한 함수
+		var x = 10;
+		// 지역변수: fn1()함수 안에서만 사용이 가능한 함수	
+		var y = 20;
+		// 전역변수
+		z = 30;
+	}
+	
+	function fn2() {
+		alert(y);
+	}
+	
+	fn1();
+	fn2();
+	
+</script>
+</html>

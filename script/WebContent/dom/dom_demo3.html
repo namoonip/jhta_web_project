@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>사용자 리스트</h3>
+	<ul id="user-list">
+		<li>홍길동</li>
+		<li>김유신</li>
+		<li>강감찬</li>
+		<li>이순신</li>
+	</ul>
+	
+	<h3>방문자 리스트</h3>
+	<ul id="guest-list">
+		<li>유관순</li>
+		<li>윤봉길</li>
+		<li>김구</li>
+		<li>이봉창</li>
+	</ul>
+	
+	<p id="btn-group">
+		
+	</p>
+</body>
+
+<script type="text/javascript">
+	// innerHTML을 이용해 엘리먼트에 html태그를 삽입하기
+	var p = document.getElementById("btn-group");
+	p.innerHTML += "<button>클릭1</button>"
+	p.innerHTML += "<button>클릭2</button>"
+
+	// 방문자명을 전부 가져오기
+	var ul = document.getElementById("guest-list");
+	var liList = ul.getElementsByTagName('li');
+	
+	for(var i=0; i<liList.length; i++) {
+		var li = liList[i];
+		console.log(li.textContent);
+	}
+	
+	// 1-1.방문자리스트에 새로운 방문자를 추가하기.
+	var el = document.createElement('li');
+	el.textContent = "안창호";
+	ul.appendChild(el);
+	
+	
+	// 1-2.방문자리스트에 새로운 방문자 추가하기 <이 방법을 더 선호함
+	ul.innerHTML += "<li>송병희</li>";
+</script>
+</html>

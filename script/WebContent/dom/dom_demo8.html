@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body onload="addDataRow()">
+
+	<h1>사용자 리스트</h1>
+	
+	<table id="user-table" border="1" style="width:100%;">
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>이름</th>
+				<th>연락처</th>
+				<th>삭제</th>
+			</tr>
+		</thead>
+		<tbody id="user-tbody">
+			
+		</tbody>
+	</table>
+</body>
+<script type="text/javascript">
+	function addDataRow() {
+		
+		var data = [
+			{no:1, name:"홍길동", tel:"010-1111-1111"},
+			{no:4, name:"김유신", tel:"010-2222-4444"},
+			{no:7, name:"강감찬", tel:"010-3333-5555"},
+			{no:8, name:"이순신", tel:"010-8888-5555"}
+		];
+		
+		var htmlContent = "";
+		for (var i=0; i<data.length; i++) {
+			var user = data[i];
+			
+			htmlContent += "<tr id='row-"+user.no+"'>";
+			htmlContent += "<td>"+user.no+"</td>";
+			htmlContent += "<td>"+user["name"]+"</td>";
+			htmlContent += "<td>"+user.tel+"</td>";
+			htmlContent += "<th><button onclick='deleteRow("+user.no+")'>삭제</button></th>";
+			htmlContent += "<tr>";
+			
+		}
+		
+		var tbody = document.getElementById("user-tbody");		
+		tbody.innerHTML = htmlContent;
+	}
+	
+	function deleteRow(no) {
+		var tbody = document.getElementById("user-tbody");
+		var row = document.getElementById("row-"+no);
+		
+		tbody.removeChild(row)
+	}
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<ul>
+		<li>홍길동</li>
+		<li>김유신</li>
+		<li>강감찬</li>
+		<li>이순신</li>
+	</ul>
+</body>
+<script type="text/javascript">
+	// getElementsByTagName(태그명)은 지정된 태그명에 해당되는 태그를 전부찾아서
+	// 각각의 태그를 엘리먼트 객체로 변환해 (배열과 비슷한)NodeList에 담아서 반환한다.
+	var list = document.getElementsByTagName("li");
+	
+	// list변수에는 태그명이 <li>인 엘리먼트객체(태그)가 전부 들어있다.
+	for (var i=0; i<list.length; i++) {
+		// el에는 검색된 <li> 엘리먼트가 순서대로 할당된다.
+		var el = list[i];
+		// 엘리먼트객체의 textContent 프로퍼티는 태그사이의 텍스트 컨텐츠를 반환한다.
+		console.log(el.textContent);
+	}
+	
+</script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<p>
+		<a href="http://www.daum.net" id="link-1">다음</a>
+		<a href="http://www.naver.com" id="link-2">네이버</a>
+		<a href="http://www.google.com" id="link-3">구글</a>
+	</p>
+	
+	<p>
+		<a href="p1.jpg" id="link-4">국화</a>
+		<a href="p2.jpg" id="link-5">수국</a>
+		<a href="p3.jpg" id="link-6">사막</a>
+	</p>
+	
+	<p>
+		<img src="p1.jpg" id="photo-box" alt="img change" style="width: 400px; height: 300px;"/>
+	</p>
+</body>
+<script type="text/javascript">
+
+	document.getElementById("link-4").addEventListener('click', function(e) {
+		e.preventDefault();	
+		var filename = e.target.getAttribute("href");
+		document.getElementById("photo-box").setAttribute('src', filename);
+	});
+	
+	document.getElementById("link-5").addEventListener('click', function(e) {
+		e.preventDefault();	
+		var filename = e.target.getAttribute("href");
+		document.getElementById("photo-box").setAttribute('src', filename);
+	});
+	
+	document.getElementById("link-6").addEventListener('click', function(e) {
+		e.preventDefault();
+		var filename = e.target.getAttribute("href");
+		document.getElementById("photo-box").setAttribute('src', filename);
+	});
+
+	
+	document.getElementById("link-1").addEventListener('click', function(e) {
+		e.preventDefault();	
+	});
+	
+	document.getElementById("link-2").addEventListener('click', function(e) {
+		e.preventDefault();	
+	});
+	
+	document.getElementById("link-3").addEventListener('click', function(e) {
+		e.preventDefault();			
+	});
+</script>
+</html>

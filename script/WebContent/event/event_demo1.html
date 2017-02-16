@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1 onmouseover="fn2(event)" onmouseout="fn3(event)">이벤트 연습</h1>
+	
+	<p onclick="fn1()">이벤트는 어떤 엘리먼트에서나 발생한다.</p>
+	
+	<button onclick="fn1()">클릭하세요</button>
+</body>
+<script type="text/javascript">
+	function fn1() {
+		console.log("함수가 실행됨...");
+	}
+	
+	function fn2(e) {
+		e.target.style.color = 'red';
+	}
+	
+	function fn3(e) {
+		e.target.style = 'blue';		
+	}
+</script>
+</html>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="emp">
+
+	<!-- 입력받은 급여보다 많은 급여를 받는 사원의 이름, 급여, 부서번호, 직종을 조회하는 쿼리 -->
+	<select id="searchEmpBySalary" parameterClass="int"
+									 resultClass="vo.EmployeeVO">
+		select first_name 		as firstName,
+			   salary,
+			   nvl(department_id, 0) 	as departmentId, 
+			   job_id 			as jobId 
+		from employees
+		where salary >= #salary#
+	</select>
+	
+	<!-- 입력받은 부서번호에 소속된 사원들의 first_name을 조회하는 쿼리 -->
+	<select id="searchEmpNameByDeptNum" parameterClass="int" resultClass="string">
+		select first_name as firstName
+		from employees
+		where department_id = #value# 
+	</select>
+
+	<!-- 입력받은 부서번호에 소속된 사원들의 급여합계를 조회하는 쿼리 -->
+	<select id="getAllSalaryByDeptNum" parameterClass="int" resultClass="double">
+		select sum(salary) as salary
+		from employees
+		where department_id = #value#
+	</select>
+	
+	<!-- 입력받은 직종에 근무하는 사원들의 수를 죄회하는 쿼리 -->
+	<select id="getAllEmpByJobId" parameterClass="string" resultClass="int">
+		select count(*) count
+		from employees
+		where job_id = #jobId#
+	</select>
+	
+	<!-- 입력받은 사원번호에 해당하는 사원정보를 조회하는 쿼리 -->
+	<select id="searchEmpInfoById" parameterClass="int" resultClass="vo.EmployeeVO">
+		select employee_id 	as id,
+			first_name 		as firstName,
+			last_name 		as lastName,
+			job_id 			as jobId,
+			salary,
+			department_id 	as departmentId
+		from employees
+		where employee_id = #id#
+	</select>
+	
+	<!-- 입력받은 이름(first_name)과 일치하는 사원정보를 조회하는 쿼리 -->
+	<select id="searchEmpInfoByFirstName" parameterClass="string" resultClass="vo.EmployeeVO">
+		select employee_id 	as id,
+			first_name 		as firstName,
+			last_name 		as lastName,
+			job_id 			as jobId,
+			salary,
+			department_id 	as departmentId
+		from employees
+		where first_name = #firstName#
+	</select>
+	
+	<select id="searchEmployees" parameterClass="vo.EmployeeVO" 
+										resultClass="vo.EmployeeVO">
+		select 
+			employee_id 	as id,
+			first_name 		as firstName,
+			last_name 		as lastName,
+			job_id 			as jobId,
+			salary,
+			department_id 	as departmentId
+		from
+			employees
+		where 1=1
+		<dynamic>
+			<isGreaterThan property="departmentId" compareValue="0">
+			and department_id = #departmentId#			
+			</isGreaterThan>
+			<isNotNull property="jobId">
+			and job_id = #jobId#			
+			</isNotNull>
+			<isGreaterThan property="salary" compareValue="0">
+			and salary >= #salary#			
+			</isGreaterThan>
+		</dynamic>
+	</select>
+	
+</sqlMap>

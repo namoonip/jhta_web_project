@@ -1,0 +1,71 @@
+@CHARSET "UTF-8";
+
+/* 판넬 테두리 컬러*/
+.panel-default {
+	border-color: #ffffff !important;
+}
+/* 판넬 헤드*/
+.panel-default>.panel-heading {
+	background-color: #ffffff !important;
+}
+/* 판넬 섀딩 구현*/
+.panel-default:hover {
+	box-shadow: 5px 5px 20px grey;
+}
+
+.mySlides {
+	display: none
+}
+
+.w3-left, .w3-right, .w3-badge {
+	cursor: pointer
+}
+
+.w3-badge {
+	height: 13px;
+	width: 13px;
+	padding: 0
+}
+.panel-footer{
+	background-color: #ffffff !important;
+}
+body {
+	font-family: Helvetica33-ExtendedThin, '맑은 고딕', '돋움',sans-serif !important;
+	background-color: @brand-primary !important;
+}
+#searchForm{
+	width: 200px !important;
+}
+.inline-form{
+	hight:30px !important;
+	width: 200px !important;
+}
+#search{
+	height: 35px !important;
+}
+#dropUl.dropdown-menu{
+	padding-left:10px;
+	padding-right:10px;
+	padding-top: 5px !important;
+	
+}
+.jumbotron{
+	background-color: #ffffff !important;
+	height: 0px !important;
+}
+.navbar {
+	margin-bottom: 50px;
+	border-radius: 0;
+}
+footer {
+	background-color: #ffffff;
+	padding: 25px;
+}
+.titlearea {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	text-align: center;
+	font-size: 23px;
+	font-style: blod;
+	
+}

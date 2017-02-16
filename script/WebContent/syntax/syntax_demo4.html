@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	// 자바스크립트의 객체
+	var obj = {
+		name:'홍길동',
+		phone:'010-1234-5678',
+		age: 34,
+		married: true,
+		children:['순신','유신'],
+		mycar: {
+			car: "현대 자동차",
+			price : 46000000,
+			year : 2017
+		}
+	};
+	
+	console.log(obj['name']);
+	console.log(obj['phone']);
+	console.log(obj.age);
+	console.log(obj['children'][0]);
+	console.log(obj.children[1]);
+	console.log(obj.mycar.car);
+	
+	var obj2 ={};
+	obj2['car'] = '현자동차';
+	obj2['price'] = 46000000;
+	obj2['year'] = 2017;
+	
+</script>
+</html>

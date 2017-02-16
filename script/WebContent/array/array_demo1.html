@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	var fruits = ["오렌지", "바나나", "사과",	"파인애플", "망고", "딸기"];
+	
+	// Array의 property
+	// length
+	console.log(fruits.length);
+	
+	// 배열의 요소를 출력
+	for (var i=0; i<fruits.length; i++) {
+		console.log(fruits[i]);
+	}
+	
+	// 번호와 값이 나온다.(Enhanced For문과 같다.)
+	for (var index in fruits) {
+		console.log(index, fruits[index]);
+	}
+	
+	// 자바스크립트의 배열은 .forEach(call back(=콜백)함수)라는 기능을 갖고 있다.
+	// forEach(콜백함수) : 배열의 갯수만큼 지정된 함수가 실행된다.
+	//				   	그 함수가 실행될 때마다 배열의 각 요소가 순서대로 함수에게 전달된다.
+	// 콜백함수의 형식 : function(data, index) { ... }
+	fruits.forEach(function(fruit, index) {
+		console.log(fruit, index);
+	});		// aaaa가 fruits배열의 length만큼 6번 실행된다.
+	
+</script>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<p>
+	조회기간:
+	<input type="date" id="start-date-field"/> ~ <input type="date" id="end-date-field" />
+	</p>
+	
+	<p>
+		<button onclick="setOneWeek()">1주일</button>
+		<button onclick="setOneMonth()">1개월</button>
+		<button onclick="setThreeMonths()">3개월</button>
+	</p>
+</body>
+<script type="text/javascript">
+	var el1 = document.getElementById("start-date-field");
+	var el2 = document.getElementById("end-date-field");
+
+	// 오늘
+	var today = new Date();
+	
+	// 오늘 날짜(Date 타입)를 String 타입(yyyy-mm-dd)으로 저장
+	var todayString = getDateString(today);
+	el2.value = todayString;
+	
+	function setOneWeek() {
+		// 일주일을 밀리세컨즈로 환산한 값
+		var time = 60*60*24*7*1000;
+		
+		// 일주일 전의 시간을 밀리세컨즈로 환산한 값
+		var beforeOneWeek = today.getTime() - time;
+		// 일주일 전의 밀리세컨즈 값을 date타입에 저장.
+		var date = new Date(beforeOneWeek);
+		
+		// 일주일 전 날짜(Date 타입)를 String 타입(yyy-mm-dd)으로 저장 
+		var dateString = getDateString(date);
+		el1.value = dateString;
+	}
+	
+	function setOneMonth() {
+		// 일주일을 밀리세컨즈로 환산한 값
+		var time = 60*60*24*30*1000;
+		
+		// 일주일 전의 시간을 밀리세컨즈로 환산한 값
+		var beforeOneWeek = today.getTime() - time;
+		// 일주일 전의 밀리세컨즈 값을 date타입에 저장.
+		var date = new Date(beforeOneWeek);
+		
+		// 일주일 전 날짜(Date 타입)를 String 타입(yyy-mm-dd)으로 저장 
+		var dateString = getDateString(date);
+		el1.value = dateString;
+		
+	}
+	
+	function setThreeMonths() {
+		// 일주일을 밀리세컨즈로 환산한 값
+		var time = 60*60*24*90*1000;
+		
+		// 일주일 전의 시간을 밀리세컨즈로 환산한 값
+		var beforeOneWeek = today.getTime() - time;
+		// 일주일 전의 밀리세컨즈 값을 date타입에 저장.
+		var date = new Date(beforeOneWeek);
+		
+		// 일주일 전 날짜(Date 타입)를 String 타입(yyy-mm-dd)으로 저장 
+		var dateString = getDateString(date);
+		el1.value = dateString;
+		
+	}
+	
+	// Date객체를 전달받아 오늘 날짜를 문자열로 바꿔 반환하는 함수
+	function getDateString(d) {
+		var year = d.getFullYear();
+		var month = d.getMonth()+1;
+		var date = d.getDate();
+		
+		var dateText = "";
+		dateText += year;
+		dateText += "-";
+		dateText += (month<10 ? '0' + month : month);
+		dateText += "-";
+		dateText += (date<10 ? '0'+date : date);
+		
+		return dateText;
+	}
+</script>
+</html>

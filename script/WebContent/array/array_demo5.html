@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	// 배열객체의 주요 메소드
+	var names = [];
+	
+	// push()	: 새로운 요소를 배열의 끝에 추가한다.
+	// arrayList의 add(E e)와 동일
+	names.push("홍길동");
+	names.push("김유신");
+	names.push("강감찬");
+	names.push("이순신");
+	names.push("윤봉길");	
+	console.log(names)
+	
+	// shift() 	: 배열의 처음에서 하나를 뽑고 지운다.
+	// pop() 	: 배열의 끝에서 하나를 뽑고 지운다.
+	var name1 = names.shift();	// name1에 홍길동(1)이 담긴다. 홍길동 값은 배열에서 사라진다.
+	var name2 = names.shift();	// name2에 김유신(2->1)이 담긴다. 김유신 값은 배열에서 사라진다.
+	var name3 = names.pop();	// name3에 윤봉길(5->4->3)이 담긴다. 윤봉길 값은 배열에서 사라진다.
+	// 따라서, 배열에는 [강감찬, 이순신]만 남아있다.
+	console.log(names);
+	
+	
+	var numbers = [23, 15, 12, 41, 82, 8, 17];
+	
+	// indexOf(값) : 배열에서 지정된 값의 위치가 반환된다.	
+	// 				위치를 찾지 못하면 -1을 반환한다.	
+	var position = numbers.indexOf(41);
+	console.log("위치: " + position); // 위치 3 반환.
+	
+	// join(): 배열 요소들을 지정된 문자로 연결한다.
+	var text = numbers.join(",");
+	console.log(text); // 23,15,12,41,82,8,17 반환
+	
+	
+	// sort(): 배열의 요소를 오름차순으로 정렬한다.
+	numbers.sort();
+	console.log(numbers); // [12, 15, 17, 23, 41, 8, 82]
+						  // -> 문자 순으로 정렬. 8이 1보다 뒤다.
+						  // compareTo와 같이 문자열 비교이다.
+	
+	numbers.sort(function(a, b) {
+		return a-b;
+	});
+	
+	console.log(numbers); // [8, 12, 15, 17, 23, 41, 82]
+						  // -> 숫자로 환산 후 정렬한다.
+	
+	// reverse(): 배열요소들의 순서를 뒤집는다.
+	numbers.reverse();
+	console.log(numbers) // [82, 41, 23, 17, 15, 12, 8]
+	
+	
+	var numbers = [23, 15, 12, 41, 82, 8, 17];
+	
+	// slice(): 배열에서 지정된 구간의 요소들을 추출해서 새로운 배열로 반환한다.
+	//		  : 배열의 요소를 지우지는 않는다.
+	var numbers = numbers.slice(2, 4);
+	console.log(numbers); // [23, 17]
+	
+	// splice(index, howmany): 배열의 지정된 위치부터 지정된 개수 만큼 배열을 지운다.
+	var numbers = [23, 15, 12, 41, 82, 8, 17];
+	numbers.splice(2, 1);
+	console.log(numbers);
+		
+	numbers.filter(function(score) { 
+		return score>50; 
+	});
+	
+</script>
+</html>

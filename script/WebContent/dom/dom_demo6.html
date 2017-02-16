@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form id="my-form" action="" onsubmit="return checkform()">
+			이름: <br />
+			 <input type="text" id="user-name" name="username"/> <br />
+			자격증 <br />
+			<input type="text" id="user-license-1" name="license"/> <br />
+	</form>
+	
+	<p>
+		<button onclick="addLicenseField();">자격증 입력칸 추가</button>
+	</p>
+</body>
+<script type="text/javascript">
+	var number= 10;
+
+	/*
+	function addLicenseField() {
+		number++;
+		var html = '<input type="text" id="user-license-'+number+'" name="license"/> <br />';
+		document.getElementById("my-form").innerHTML += html;
+	}
+	*/
+	
+	function addLicenseField() {
+		var input = document.createElement("input");	// <input />
+		input.setAttribute("type", "text");				// + <input type="text"/>
+		input.setAttribute("id", "user-license-"+number++); // + <input id="user-license-?"/>
+		input.setAttribute("name", "license");			// + <input name="license"/>
+		
+		// <br/>
+		var br = document.createElement("br");
+		
+		document.getElementById("my-form").appendChild(input);		
+		document.getElementById("my-form").appendChild(br);		
+	}
+	
+	
+	
+	
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<button id="btn1" onclick="fn1();">버튼1</button>
+	<button id="btn2">버튼2</button>
+	<button id="btn3">버튼3</button>
+	<button id="btn4">버튼4</button>
+	<button id="btn5">버튼5</button>	
+</body>
+<script type="text/javascript">
+	// 1.element.onclick = 실행될 함수명;
+	var secondBtn = document.getElementById("btn2");
+	secondBtn.onclick = fn2;	// innerHTML과 같은 의미다.
+	
+	// 2.element.addEventListener("click", 실행될 함수명);
+	var thirdBtn = document.getElementById("btn3");
+	thirdBtn.addEventListener('click', fn3);
+	// 익스플로러에서는 addEventListener가 작동되지 않는다.
+	
+	// 3.콜백 함수(=대기 함수)
+	var fourthBtn = document.getElementById("btn4");
+	fourthBtn.onclick = function () {
+		alert("네번째 버튼 클릭");
+	}
+	
+	// 4.콜백 함수(=대기 함수)
+	var fifthBtn = document.getElementById("btn5");
+	fifthBtn.addEventListener('click', function() {
+		alert("다섯번째 버튼 클릭");
+	});	
+	
+	function fn1() {alert("첫번째 버튼 클릭");}
+	function fn2() {alert("두번째 버튼 클릭");}
+	function fn3() {alert("세번째 버튼 클릭");}
+</script>
+</html>

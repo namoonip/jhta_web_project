@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div, p {padding:20px; border:1px solid black;}
+</style>
+</head>
+<body>
+	<button id="btn-run" onclick="fn1(event)">실행</button>
+	<button ondblclick="fn2(event)">버튼2</button>
+	<hr />
+	<div onmouseenter="fn3()" onmouseover="fn4()"
+			onmouseleave="fn5()" onmouseout="fn6()">
+		여기는 div태그
+		<p onmousemove="fn7(event)">여기는 p태그</p>
+	</div>
+</body>
+<script type="text/javascript">
+	function fn1(event) {
+		console.log('onclick...'); 
+		console.log("이벤트 타입:", event.type);
+		console.log("이벤트를 발생시킨 엘리먼트", event.target);
+		console.log(event.target.id);
+		
+		event.target.textContent = "중지";
+		event.target.setAttribute("disabled", "disabled");
+	}
+	function fn2(event) { 
+		console.log('ondblclick...'); 
+		console.log("이벤트 타입:", event.type); 
+	}
+	
+	function fn3() { console.log('onmouseenter...'); }
+	function fn4() { console.log('onmouseover...'); }
+	function fn5() { console.log('onmouseleave..'); }
+	function fn6() { console.log('onmouseout...'); }
+	function fn7(event) { console.log("x: ", event.screenX , "y: ", event.screenY); }
+	function fn8() { }
+</script>
+</html>

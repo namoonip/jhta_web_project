@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form method="post" action="register.jsp" onsubmit="return formcheck();">
+		이름 : <br>
+		<input type="text" id="user-name" name="username" value="한글한글"/><br />
+		아이디 : <br>
+		<input type="text" id="user-id" name="userid" value="z123123"/><br />
+		비밀번호 : <br>
+		<input type="password" id="user-pwd" name="userpwd" value="Zxcv1234&"/><br />
+		연락처 : <br>
+		<input type="text" id="user-tel" name="usertel" /><br />
+		<button type="submit">등록</button>
+	</form>
+</body>
+<script type="text/javascript">
+	// submint입력이 발생했을 때 모두 적었는지 확인하는 기능
+	function formcheck() {
+		
+		// 사용자 이름이 입력되었는지 체크하기
+		var nameEL = document.getElementById("user-name");
+		var name = nameEL.value.trim();	//공백제거
+		if(name == "") {
+			alert("이름은 필수 입력값 입니다.");
+			nameEL.focus();
+			return false;
+		}
+		// 사용자 이름이 한글로 2글자 이상인지 확인하기
+		var hanguelPattern = /^[가-힣]{2,14}$/;
+		if(!hanguelPattern.test(name)) {
+			alert("이름은 한글 2글자에서 14글자 사이를 입력해야 합니다.");
+			nameEL.focus();
+			return false;
+		}
+		
+		
+		// 사용자 아이디가 입력되었는지 체크하기(6글자 이상)
+		var idEL = document.getElementById("user-id");
+		var id = idEL.value.trim();
+		if(id == "" ) {
+			alert("아이디는 필수 입력값입니다.");
+			idEL.focus();
+			return false;
+		}
+		// 아이디는 영어소문자/대문자/숫자 6글자 이상 12글자 미만, 첫글자는 영문자로 입력되었는지 체크하기
+		var idPattern = /^[a-zA-Z][a-zA-Z0-9]{5,11}$/;
+		if(!idPattern.test(id)) {
+			alert("아이디의 첫글자는 영문자이고, 영문자/숫자를 포함하는 6~12글자 사이의 값을 입력해야합니다.");
+			idEL.focus();
+			return false;
+		}
+		
+		
+		// 사용자 비밀번호가 입력되었는지 체크하기
+		var pwdEL = document.getElementById("user-pwd");
+		var pwd = pwdEL.value.trim();
+		if(pwd == "") {
+			alert("비밀번호는 필수 입력값입니다.");
+			pwdEL.focus();
+			return false;
+		}
+		// 
+		var pwdPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/;
+		if(!pwdPattern.test(pwd)) {
+			alert("비밀번호는 하나 이상의 대소문자/숫자/특수문자를 포함한 8글자 이상의 값을 입력해야합니다. ");
+			pwdEL.focus();
+			return false;
+		}
+		
+		var telEL = document.getElementById("user-tel");
+		var tel = telEL.value.trim();
+		if(tel == "") {
+			alert("전화번호는 필수 입력값입니다.");
+			telEL.focus();
+			return false;
+		}
+		
+		// 휴대폰번호 패턴 입력
+		var phonePattern = /^01[016789]-\d{3,4}-\d{4}$/;
+		if (!phonePattern.test(tel)) {
+			alert("유효한 전화번호 형식이 아닙니다.");
+			telEL.focus();
+			return false;
+		}
+		
+		return true;
+	}
+</script>
+</html>

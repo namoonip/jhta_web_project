@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	예매 날짜 : <input type="date" id="date-field"/>
+</body>
+<script type="text/javascript">
+	// Date : 날짜/시간 정보를 가지고 있는 객체
+	var today = new Date();
+	console.log(today);
+	
+	var dateString = today.toLocaleDateString();
+	console.log(dateString);
+	
+	// getFullYear(): 년도를 반환(년).
+	// getMonth() 	: 0~11 사이의 값 반환(월). +1 해야함.
+	// getDate() 	: 1~31 사이의 값 반환(일).
+	// getHours() 	: 0~23 사이의 값 반환(시).
+	// getMinutes() : 0~59 사이의 값 반환(분).
+	// getSeconds() : 0~59 사이의 값 반환(초).
+	// getTime() 	: 1970년 1월1일 0시0분0초 ~
+	
+	var year = today.getFullYear();
+	var month = today.getMonth() + 1;
+	var date = today.getDate();
+	console.log(year, month+1, date);
+	
+	var dateText = "";
+	dateText += year;
+	dateText += "-";
+	dateText += (month<10 ? '0'+month : month);
+	dateText += "-";
+	dateText += (date<10 ? '0'+date : date);
+	console.log(dateText);
+	
+	// 예매 날짜를 오늘 날짜로 설정
+	document.getElementById("date-field").value = dateText; 
+	
+</script>
+</html>

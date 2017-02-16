@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>방문자 리스트</h3>
+	<ul id="guest-box">
+		<li id="guest-1">홍길동 <button onclick="delGuest(1)">삭제</button></li>
+		<li id="guest-3">김유신 <button onclick="delGuest(3)">삭제</button></li>
+		<li id="guest-6">강감찬 <button onclick="delGuest(6)">삭제</button></li>
+		<li id="guest-12">이순신 <button onclick="delGuest(12)">삭제</button></li>
+		<li id="guest-69">유관순 <button onclick="delGuest(69)">삭제</button></li>
+	</ul>
+</body>
+<script type="text/javascript">
+	function delGuest(no) {
+		// 삭제할 li의 부모 Element찾기
+		var ul = document.getElementById("guest-box");
+		// 삭제할 li Element찾기
+		var li = document.getElementById("guest-"+no);
+		
+		ul.removeChild(li);
+		
+		location.href="delete.jsp?=no" + no;
+	}
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+	// 정규표현식(regular expression)
+	// 특별한 규칙(패턴)을 가지는 문자열을 표현할 때 사용되는 언어
+	// 텍스트편집기나 프로그래밍 언어에서 문자열의 검색/치환을 작업을 유용하게 사용된다.
+	
+	var text1 = "hello world";
+	var pattern1 = /hello/;
+	var result1 = pattern1.test(text1);
+	console.log(result1);	// true
+	
+	//h와 l사이에 문자가 하나있는 표현이 있는지 확인하는 정규표현식
+	var pattern2 = /h.l/;	
+	var result2 = pattern2.test(text1);
+	console.log(result2);	// true
+	
+	var pattern3 = /l{2}/;
+	var result3 = pattern3.test(text1);
+	console.log(result3);	// true
+	
+</script>
+</html>

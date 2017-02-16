@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<p>
+		<input type="checkbox" name="hobby" value="" checked="checked"/> 영화보기
+		<input type="checkbox" name="hobby" value="" /> 게임하기
+		<input type="checkbox" name="hobby" value="" /> 잠자기
+		<input type="checkbox" name="hobby" value="" />	만화보기
+		<input type="checkbox" name="hobby" value="" /> 먹기
+		<input type="checkbox" name="hobby" value="" /> 멍때리기
+	</p>
+	
+	<p>
+		<button onclick="checkAll()">전체 선택</button>
+		<button onclick="unCheckAll()">전체 해제</button>
+		
+		<button onclick="nextStep()">다음 단계</button>
+	</p>
+</body>
+<script type="text/javascript">
+	function nextStep() {
+		var isChecked = false;
+		var checkboxes = document.getElementsByName("hobby");
+		
+		for (var i=0; i<checkboxes.length; i++) {
+			var checkbox = checkboxes[i];
+			if (checkbox.checked) { // 체크박스의 checked 프로퍼티가 체크된 경우
+				isChecked = true;
+			}
+		}
+		if (isChecked) {
+			alert("다음 단계로 넘어갑니다.");
+		} else {
+			alert("한개 이상 선택하십시오.");
+		}	
+	}
+
+	function checkAll() {
+		var checkboxes = document.getElementsByName("hobby");
+		for (var i=0; i<checkboxes.length; i++) {
+			var checkbox = checkboxes[i];
+			checkbox.setAttribute("checked", "checked");
+			checkbox.checked=true;
+		}
+	}
+	
+	function unCheckAll() {
+		var checkboxes = document.getElementsByName("hobby");
+		for (var i=0; i<checkboxes.length; i++) {
+			var checkbox = checkboxes[i];
+			checkbox.removeAttribute("checked");
+			checkbox.checked=false;
+		}	
+	}
+</script>
+</html>

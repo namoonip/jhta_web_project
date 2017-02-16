@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="panel panel-default">
+					<div class="panel-heading">가격, 수량 계산기</div>
+					<div class="panel-body">
+					<div class="form-group">
+						가격: <input type="number" id="price-field" value="0" /> 
+					</div>
+					<div class="form-group">
+						수량: <input type="number" id="qty-field" value="0" />
+					</div>
+					<div class="form-group">
+						<button class="btn btn-success" id="total-btn"  onclick="displayTotalPrice()"">계산</button>
+					</div>
+					</div>
+					<div class="panel-footer">
+						결제금액 <input type="text" id="total-field" readonly="readonly" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	function displayTotalPrice() {
+		var priceText = document.getElementById("price-field").value;
+		var qtyText = document.getElementById("qty-field").value;
+		
+		// 입력필드의 문자열을 숫자(정수)로 변환
+		var price = parseInt(priceText);
+		var qty = parseInt(qtyText);
+		
+		var totalPrice = price * qty;
+		
+		// 계산된 결제금액을 필드에 표시하기
+		document.getElementById("total-field").value = totalPrice;
+	}
+</script>
+</html>

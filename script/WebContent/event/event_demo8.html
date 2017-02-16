@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div, p {
+		padding: 30px; border: 1px solid black;
+	}
+</style>
+</head>
+<body>
+	<div id="div-el">
+		<p id="p-el">
+			<button id="btn-el">클릭</button>
+		</p>
+	</div>	
+</body>
+<script type="text/javascript">
+	document.getElementById("btn-el").addEventListener('click', function(event) {
+		event.stopImmediatePropagation();
+		console.log("Button 첫번째 처리");
+	});
+	document.getElementById("btn-el").addEventListener('click', function(event) {
+		event.stopPropagation();
+		console.log("Button 두번째 처리");
+	});
+	document.getElementById("p-el").addEventListener('click', function(event) {
+		event.stopPropagation();
+		console.log("p 처리");
+	});
+	document.getElementById("div-el").addEventListener('click', function(event) {
+		event.stopPropagation();
+		console.log("div 처리");
+	});
+</script>
+</html>

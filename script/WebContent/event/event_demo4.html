@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="order.jsp" method="post">
+		수량 : <br />
+		<input type="text" id="qty-field" onkeyup="chooseNumber()"/><br />
+		메모 : <br />
+		<!-- 글자수 증가 용도 onkeydown, onkeypress, onkeyup -->
+		<textarea name="" id="memo" cols="60" rows="5" onkeyup="keyup();"></textarea>		
+	</form>
+	<button type="submit" onclick="chooseNumber()">번호만 뽑아내기</button>
+	<p>입력된 문자갯수 : <span id="cnt-label" onkeypress="">0</span>개</p>
+</body>
+<script type="text/javascript">
+
+	function chooseNumber() {
+		
+		var input = document.getElementById('qty-field');
+		// "1a2b3c4dd"
+		
+		var value = input.value;
+		// arr = ['1','a','2','b','3','c','4','d','d'];
+		
+		var arr = value.split('');
+		// numberArr = ['1','2','3','4'];
+		// filter(callback): filter메소드는 지정된 콜백함수가 true를 반환하는 요소로 구성된
+		//				   : 새로운 배열을 제공한다
+		// filter(callback): callback함수는 배열의 각 요소마다 한번씩 실행된다.
+		// callback함수에는 배열의 각 요소가 순서대로 하나씩 전달된다.
+		// callback함수가 true를 반환하는 요소만 새로운 배열에 저장된다.
+		var numberArr = arr.filter(function(item) {
+			var pattern = /[0-9]/;
+			return pattern.test(item);
+		});
+				
+		input.value = numberArr.join("");
+		
+		return true;
+	}
+
+	function keyup() {
+		var area = document.getElementById("memo");
+		var span = document.getElementById("cnt-label");
+		var text = area.value;
+		span.textContent = text.length;
+	}
+
+	function keydown() {
+		console.log("onkeydown event");
+	}
+	
+	function keypress() {
+		console.log("onkeypress event");
+	}
+
+	function checkNumber() {
+		var input = document.getElementById('qty-field');
+		var qty = input.value
+		
+		var pattern = /^[0-9]*$/;
+		if (!pattern.test(qty)) {
+			alert('숫자를 입력해주세요.');
+			
+			var numberValue = qty.substring(0, qty.length-1);
+			
+			input.value = numberValue; 	// input 박스 입력값 지우기
+			input.focus();			  	// input 박스로 포커스 옮기기
+			return;
+		}
+	}
+</script>
+</html>

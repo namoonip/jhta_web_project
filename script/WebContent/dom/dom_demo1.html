@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1 id="header-title">Dom 예제</h1>
+</body>
+<script type="text/javascript">
+
+	// <h1>태그 접근하기.
+	// id를 이용해 el1에 엘리먼트 객체 저장하기.
+	var el1 = document.getElementById("header-title");
+	var text1 = el1.textContent;
+	console.log(text1);
+	el1.textContent = "HTML DOM 연습하기";
+	
+	el1.setAttribute("title", "제목");
+	el1.getAttribute("title")
+	console.log(el1);
+</script>
+</html>
