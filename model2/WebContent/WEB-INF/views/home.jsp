@@ -15,6 +15,10 @@
 <body>
 	<div class="container">
 		<h1>Home Page</h1>
+		
+		<p>메세지 : ${msg }</p>
+		
+		<p><a href="list.hta">고객 조회</a></p>
 	</div>
 </body>
 </html>

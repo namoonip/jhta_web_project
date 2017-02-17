@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" session="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -15,6 +16,14 @@
 <body>
 	<div class="container">
 		<h1>List Page</h1>
+		<hr />
+		
+		<h3>고객 리스트</h3>
+		<ul class="list-group">
+			<c:forEach var="user" items="${users }">
+				<li class="list-group-item">${user.name }</li>
+			</c:forEach>
+		</ul>
 	</div>
 </body>
 </html>
