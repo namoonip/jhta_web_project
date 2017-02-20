@@ -4,6 +4,7 @@ package ex;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import javafx.scene.control.Label;
@@ -14,7 +15,6 @@ public class SameWords {
 		
 		@Test
 		public void TestRebackCheck() {
-			
 			
 			
 		}
