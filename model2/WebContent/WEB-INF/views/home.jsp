@@ -16,9 +16,10 @@
 	<div class="container">
 		<h1>Home Page</h1>
 		
-		<p>메세지 : ${msg }</p>
+		<p>${msg }</p>
 		
-		<p><a href="list.hta">고객 조회</a></p>
+		<p><a href="list.hta" class="w3-btn">고객 조회</a></p>
+		<p><a href="form.hta" class="w3-btn">고객 등록</a></p>
 	</div>
 </body>
 </html>

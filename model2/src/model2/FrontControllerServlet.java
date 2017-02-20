@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import controller.AddFormController;
+import controller.AddController;
+import controller.FormController;
 import controller.HomeController;
 import controller.ListController;
 
@@ -33,8 +34,10 @@ public class FrontControllerServlet extends HttpServlet{
 				} else if("/list.hta".equals(requestUrl)) {
 					controller = new ListController();
 					
+				} else if("/form.hta".equals(requestUrl)) {
+					controller = new FormController();
 				} else if("/add.hta".equals(requestUrl)) {
-					controller = new AddFormController();
+					controller = new AddController();
 				}
 				
 				// 유효하지 않은 url요청인 경우 controller는 null처리.
