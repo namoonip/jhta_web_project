@@ -153,7 +153,7 @@
       
       
       
-      <Context docBase="model2-board" path="/" reloadable="true" source="org.eclipse.jst.jee.server:model2-board"/></Host>
+      <Context docBase="model2-login" path="/model2-login" reloadable="true" source="org.eclipse.jst.jee.server:model2-login"/></Host>
     </Engine>
   </Service>
 </Server>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="User">
+
+	<update id="changeUserStateN" parameterClass="string">
+		update tb_user
+		set user_state = 'N'
+		where user_id = #id#
+	</update>
+	
+	<update id="changeUserStateY" parameterClass="string">
+		update tb_user
+		set user_state = 'Y'
+		where user_id = #id#
+	</update>
+
+	<select id="getUserInfoById" parameterClass="string" resultClass="vo.UserVO">
+	
+	</select>
+	
+	<delete id="deleteAllUser">
+		delete from tb_user
+	</delete>
+	
+		
+	<insert id="addNewUser" parameterClass="vo.UserVO">
+		insert into tb_user
+		(user_id, user_pwd, user_name, user_phone,
+		 user_addr, user_point, user_regdate)
+		 values
+		(#id#, #pwd#, #name#, #phone#, #addr#, #point#, #regdate#)
+	</insert>
+	
+	
+	<select id="getUserByIdForMap" parameterClass="string" resultClass="hashmap">
+		select
+			user_id 	as id,
+			user_name 	as name,
+			user_pwd 	as pwd,
+			user_phone 	as phone,
+			user_addr 	as addr,
+			user_point 	as point,
+			user_regdate 	as regdate
+		from 
+			tb_user
+		where
+			user_id = #value#
+	</select>
+	
+	
+	<select id="getUsername" parameterClass="string" resultClass="string">
+		select user_name
+		from tb_user	
+		where user_id = #value#
+	</select>
+		
+		
+	<select id="getUserCount" resultClass="int">
+		select count(*)
+		from tb_user
+	</select>
+	
+	
+	<select id="getUserById" parameterClass="string" resultClass="vo.UserVO">
+		select
+			user_id 	as id,
+			user_name 	as name,
+			user_pwd 	as pwd,
+			user_phone 	as phone,
+			user_addr 	as addr,
+			user_point 	as point,
+			user_regdate 	as regdate
+		from 
+			tb_user
+		where
+			user_id = #value#
+	</select>
+	
+	
+	<select id="getAllUsers" resultClass="vo.UserVO">
+		select
+			user_id 	as id,
+			user_name 	as name,
+			user_pwd 	as pwd,
+			user_phone 	as phone,
+			user_addr 	as addr,
+			user_point 	as point,
+			user_regdate 	as regdate
+		from 
+			tb_user
+	</select>
+	
+	
+</sqlMap>
