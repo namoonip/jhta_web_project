@@ -23,7 +23,6 @@ public class UserVO implements HttpSessionActivationListener{
 	
 	public UserVO() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	public UserVO(String id, String name, String pwd, String phone, String addr, int point, Date regdate) {
