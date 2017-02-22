@@ -1,0 +1,27 @@
+<Context>
+	<Resource 
+		name="jdbc/myoracle" 
+		auth="Container"
+        type="javax.sql.DataSource" 
+        driverClassName="oracle.jdbc.OracleDriver"
+        url="jdbc:oracle:thin:@localhost:1521:xe"
+        username="hr" 
+        password="zxcv1234" 
+        maxTotal="20" 
+        maxIdle="10"
+        maxWaitMillis="-1"/>
+        
+        <!-- 커넥션 풀 설정
+        	name 	: Connection Pool의 이름
+        	auth 	: Connection Pool의 생성하는 주체
+        	type 	: Connection Pool객체가 구현한 인터페이스 타입
+        	driverClassName : jdbc 드라이버 이름
+        	url 	: DB의 실제 위치
+        	username : 접속 계정명
+        	password : 접속 비밀번호 
+        	maxTotal : 최대 커넥션 개수
+        	maxIdle  : 최대 유휴 상태 커넥션 개수
+        	maxWaitMillis : 최대 대기시간
+         -->
+         
+</Context>

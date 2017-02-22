@@ -2,7 +2,6 @@ package model2;
 
 import java.io.IOException;
 import java.util.Map;
-import java.util.Properties;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;

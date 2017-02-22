@@ -8,15 +8,11 @@
 
   <!-- DB 연결정보 설정 -->
   <transactionManager type="JDBC" commitRequired="false">
-    <dataSource type="SIMPLE">
-      <property name="JDBC.Driver" value="oracle.jdbc.OracleDriver"/>
-      <property name="JDBC.ConnectionURL" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-      <property name="JDBC.Username" value="hr"/>
-      <property name="JDBC.Password" value="zxcv1234"/>
+    <dataSource type="JNDI">
+      <property name="DataSource" value="java:comp/env/jdbc/myoracle"/>
     </dataSource>
   </transactionManager>
   
   <!-- 맵퍼 파일 등록 -->
   <sqlMap resource="config/user.xml"/>
-    
 </sqlMapConfig>
