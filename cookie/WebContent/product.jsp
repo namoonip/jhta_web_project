@@ -21,11 +21,17 @@
 		
 			Cookie[] cookies = request.getCookies();
 			String cookieValue = CookieUtil.getValue(cookies, "recent-product");
+			
+			
 			if(cookieValue.isEmpty()) {
 				cookieValue = productName;
+				
 			} else {
 				cookieValue += ":" + productName;
+				
 			}
+			
+			
 			Cookie cookie = new Cookie("recent-product", cookieValue);
 			cookie.setMaxAge(60*60);
 			response.addCookie(cookie);

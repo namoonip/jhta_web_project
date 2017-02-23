@@ -15,7 +15,7 @@ import javax.servlet.http.Part;
 import dao.GalleryDAO;
 import vo.GalleryVO;
 
-// ¸ÖÆ¼ÆÄÆ®¿äÃ»À» Ã³¸®ÇÒ ¼ö ÀÖ´Â ¼­ºí¸´À¸·Î ÁöÁ¤ÇÑ´Ù.
+// ï¿½ï¿½Æ¼ï¿½ï¿½Æ®ï¿½ï¿½Ã»ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 @MultipartConfig
 @WebServlet(urlPatterns="/upload.hta")
 public class UploadServlet extends HttpServlet{
@@ -25,26 +25,26 @@ public class UploadServlet extends HttpServlet{
 			
 		request.setCharacterEncoding("utf-8");
 		
-		// ÀÔ·ÂÇÊµåÀÇ ´Ü¼ø ÅØ½ºÆ® °ª °¡Á®¿À±â
+		// ï¿½Ô·ï¿½ï¿½Êµï¿½ï¿½ï¿½ ï¿½Ü¼ï¿½ ï¿½Ø½ï¿½Æ® ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		String username = request.getParameter("username");
 		String description = request.getParameter("description");
-		System.out.println("ÀÛ¼ºÀÚ ÀÌ¸§: " + username);
-		System.out.println("¼³¸í: "+ description);
+		System.out.println("ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½: " + username);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½: "+ description);
 		
-		// Ã·ºÎÆÄÀÏ Ã³¸®ÇÏ±â
+		// Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ï±ï¿½
 		Part part = request.getPart("photofile");
 		String filename = getFilename(part);	
 		
-		// ½ÇÁ¦ °æ·Î ¾Ë¾Æ³»±â
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ë¾Æ³ï¿½ï¿½ï¿½
 		ServletContext application = this.getServletContext();
 		String galleryDir = application.getRealPath("gallery");
-		System.out.println("°¶·¯¸® µğ·ºÅä¸®°æ·Î: " + galleryDir);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ä¸®ï¿½ï¿½ï¿½: " + galleryDir);
 		
-		// Ã·ºÎ ÆÄÀÏÀÌ ÀÖ´Â °æ¿ì
+		// Ã·ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½
 		if (filename != null && !filename.isEmpty()) {
-			System.out.println("Ã·ºÎÆÄÀÏ¸í: " + filename);
+			System.out.println("Ã·ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½: " + filename);
 
-			// ÆÄÀÏÀ» galleryÆú´õ¿¡ ÀúÀåÇÏ±â
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ galleryï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 			part.write(galleryDir + "/" + filename);
 		}
 		
@@ -60,12 +60,12 @@ public class UploadServlet extends HttpServlet{
 		
 	}
 	
-	// ÆÄÀÏ ÀÌ¸§À» ¹Ş¾Æ¿À±â
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½Ş¾Æ¿ï¿½ï¿½ï¿½
 	private String getFilename(Part part) {
 		String headerValue = part.getHeader("content-disposition");
 		String[] elements = headerValue.split(";");
 		for (String el : elements) {
-			// filenameÀÌ¶ó´Â ÀÌ¸§À¸·Î ½ÃÀÛÇÏ´ÂÁö Ã¼Å©ÇÑ´Ù(trimÀº ¸Ç¾ÕÀÇ °ø¹éÀ» Á¦°ÅÇÏ±â À§ÇØ ºÙ´Â´Ù).
+			// filenameìœ¼ë¡œ ì‹œì‘í•˜ëŠ”ì§€ ì²´í¬
 			if(el.trim().startsWith("filename")) {
 				return el.substring(el.indexOf("=") + 1).replace("\"", "");
 			}
