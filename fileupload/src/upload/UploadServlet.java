@@ -25,13 +25,11 @@ public class UploadServlet extends HttpServlet{
 			
 		request.setCharacterEncoding("utf-8");
 		
-		// �Է��ʵ��� �ܼ� �ؽ�Ʈ �� ��������
 		String username = request.getParameter("username");
 		String description = request.getParameter("description");
-		System.out.println("�ۼ��� �̸�: " + username);
-		System.out.println("����: "+ description);
+		System.out.println("username: " + username);
+		System.out.println("description: "+ description);
 		
-		// ÷������ ó���ϱ�
 		Part part = request.getPart("photofile");
 		String filename = getFilename(part);	
 		

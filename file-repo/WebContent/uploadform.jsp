@@ -13,6 +13,18 @@
 <title>Example</title>
 </head>
 <body>
-
+	<div class="container">
+		<h1>File Upload</h1>
+	
+		<form action="upload" method="post" class="form-group" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="">첨부파일</label>
+				<input type="file" class="form-control" name="upfile"/>
+			</div>
+			<div class="form-group">
+				<button type="submit" class="w3-btn">등록</button>
+			</div>			
+		</form>
+	</div>
 </body>
 </html>
