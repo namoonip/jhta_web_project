@@ -153,7 +153,7 @@
       
       
       
-      <Context docBase="model2-login" path="/model2-login" reloadable="true" source="org.eclipse.jst.jee.server:model2-login"/><Context docBase="cookie" path="/cookie" reloadable="true" source="org.eclipse.jst.jee.server:cookie"/><Context docBase="file-repo" path="/file-repo" reloadable="true" source="org.eclipse.jst.jee.server:file-repo"/></Host>
+      <Context docBase="json" path="/json" reloadable="true" source="org.eclipse.jst.jee.server:json"/></Host>
     </Engine>
   </Service>
 </Server>
