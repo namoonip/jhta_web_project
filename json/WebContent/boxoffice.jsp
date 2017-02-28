@@ -26,7 +26,34 @@
 				var xhr = new XMLHttpRequest();
 				xhr.onreadystatechange = function() {
 					if(xhr.readyState == 4 && xhr.status == 200) {
-						/*
+						
+						//var xmlText = xhr.responseText;
+						//var xmlDoc = $.parseXML(xmlText);
+						
+						// ajax에서 이미 xml로 올줄 예상하고 xml.responseXML를 통해 객체를 만들 수 있도록 만들어 놓았다.
+						var xmlDoc = xhr.responseXML;
+						
+						var htmlContent = "";
+						$(xmlDoc).find("dailyBoxOffice").each(function(index, item) {
+							var rank = $(item).find('rank').text();
+							var name = $(item).find('movieNm').text();
+							var openDate = $(item).find('openDt').text();
+							var salesShare = $(item).find('salesShare').text();
+							var audiCnt = $(item).find('audiAcc').text();
+							
+							htmlContent += "<tr>";
+							htmlContent += "<td>" + rank + "</td>";
+							htmlContent += "<td>" + name + "</td>";
+							htmlContent += "<td>" + openDate + "</td>";
+							htmlContent += "<td>" + salesShare + " %</td>";
+							htmlContent += "<td>" + audiCnt + " 명</td>";
+							htmlContent += "</tr>";
+						});
+						
+						$('tbody').html(htmlContent);
+						
+						
+						/* 응답 데이터가 JSON 형식의 텍스트인 경우
 						// jsonText가 url을 통해 내려온다.
 						var jsonText = xhr.responseText;
 						// object로 JSON text를 불러온다.

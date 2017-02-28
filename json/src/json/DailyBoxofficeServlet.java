@@ -24,11 +24,14 @@ public class DailyBoxofficeServlet extends HttpServlet{
 		String date = request.getParameter("date");
 		
 		// key를 발급 받은 후 path를 저장한다.
-		String path = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=430156241533f1d058c603178cc3ca0e&targetDt="+date;
-		
+			//String path = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=430156241533f1d058c603178cc3ca0e&targetDt="+date;
+		String path = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.xml?key=430156241533f1d058c603178cc3ca0e&targetDt="+date;
 		// URL을 가져와 파이프 연결하기
 		URL url = new URL(path);
-		response.setContentType("application/json;charset=utf-8");
+		
+			//response.setContentType("application/json;charset=utf-8");
+		response.setContentType("text/xml;charset=utf-8");
+		
 		OutputStream os = response.getOutputStream();		
 		InputStream is = url.openStream();
 		
