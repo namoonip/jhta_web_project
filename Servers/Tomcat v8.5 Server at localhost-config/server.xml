@@ -153,7 +153,7 @@
       
       
       
-      <Context docBase="json" path="/json" reloadable="true" source="org.eclipse.jst.jee.server:json"/></Host>
+      <Context docBase="jQuery" path="/jQuery" reloadable="true" source="org.eclipse.jst.jee.server:jQuery"/></Host>
     </Engine>
   </Service>
 </Server>
