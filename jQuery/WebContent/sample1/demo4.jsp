@@ -14,20 +14,20 @@
 <script>
 	$(function() {
 		$('button').click(function() {
-			var nationCode = $(this).attr('id').replace('-btn','');
-			
-			$('#food-list').empty();
+			var nationCode = $(this).attr('id').replace("-btn","");
 			
 			$.ajax({
 				type:"GET",
-				url:"../food.xml?na="+nationCode,
-				success:function(xmlDoc) {
-					$(xmlDoc).find("item").each(function(index, foodItem) {
-						var foodName = $(foodItem).text();
-						$('#food-list').append("<li class='list-group-item'>"+foodName+"</>");
+				url:"../food.json?na="+nationCode,
+				success: function(data) {
+					
+					$("#food-list").empty();
+					
+					$.each(data, function(index, item){						
+						$("#food-list").append("<li class=list-group-item>"+item+"</li>");
 					});
 				}
-			})
+			});
 		});
 	})
 </script>
