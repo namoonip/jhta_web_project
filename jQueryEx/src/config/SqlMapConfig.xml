@@ -17,6 +17,6 @@
   </transactionManager>
   
   <!-- 맵퍼 파일 등록 -->
-  <sqlMap resource="config/employee.xml"/>
+  <!-- <sqlMap resource=""/>  -->
     
 </sqlMapConfig>
