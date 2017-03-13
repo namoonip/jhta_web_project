@@ -46,7 +46,7 @@ public class FrontControllerServlet extends HttpServlet{
 				} else if (arr[0].equals("redirect")) {
 					response.sendRedirect(arr[1]);
 				}
-						
+			
 				
 			} catch (ServletException e) {
 				throw e;

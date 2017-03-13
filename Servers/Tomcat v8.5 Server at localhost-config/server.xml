@@ -153,7 +153,7 @@
       
       
       
-      <Context docBase="jQuery" path="/jQuery" reloadable="true" source="org.eclipse.jst.jee.server:jQuery"/><Context docBase="jQueryEx" path="/jQueryEx" reloadable="true" source="org.eclipse.jst.jee.server:jQueryEx"/></Host>
+      <Context docBase="jQuery" path="/jQuery" reloadable="true" source="org.eclipse.jst.jee.server:jQuery"/><Context docBase="jQueryEx" path="/jQueryEx" reloadable="true" source="org.eclipse.jst.jee.server:jQueryEx"/><Context docBase="fileuploadEx" path="/fileuploadEx" reloadable="true" source="org.eclipse.jst.jee.server:fileuploadEx"/><Context docBase="model2-login" path="/model2-login" reloadable="true" source="org.eclipse.jst.jee.server:model2-login"/></Host>
     </Engine>
   </Service>
 </Server>
